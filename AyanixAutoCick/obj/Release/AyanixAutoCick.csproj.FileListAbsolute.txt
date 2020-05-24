@@ -1,0 +1,8 @@
+D:\PROJECT\AyanixAutoCick\AyanixAutoCick\bin\Release\AyanixAutoCick.exe.config
+D:\PROJECT\AyanixAutoCick\AyanixAutoCick\bin\Release\AyanixAutoCick.exe
+D:\PROJECT\AyanixAutoCick\AyanixAutoCick\bin\Release\AyanixAutoCick.pdb
+D:\PROJECT\AyanixAutoCick\AyanixAutoCick\obj\Release\AyanixAutoCick.frmBOt.resources
+D:\PROJECT\AyanixAutoCick\AyanixAutoCick\obj\Release\AyanixAutoCick.Properties.Resources.resources
+D:\PROJECT\AyanixAutoCick\AyanixAutoCick\obj\Release\AyanixAutoCick.csproj.GenerateResource.Cache
+D:\PROJECT\AyanixAutoCick\AyanixAutoCick\obj\Release\AyanixAutoCick.exe
+D:\PROJECT\AyanixAutoCick\AyanixAutoCick\obj\Release\AyanixAutoCick.pdb
