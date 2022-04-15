@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBOt));
             this.btnPlay = new System.Windows.Forms.Button();
             this.lv = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colColorXY = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colClickXY = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnReset = new System.Windows.Forms.Button();
             this.lblcursor = new System.Windows.Forms.Label();
@@ -53,34 +53,34 @@
             this.chkLimitClk = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.chkAll = new System.Windows.Forms.CheckBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tab_list = new System.Windows.Forms.TabPage();
-            this.tab_settings = new System.Windows.Forms.TabPage();
             this.numRetry = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.lbltolerancevalue = new System.Windows.Forms.Label();
-            this.tb_tolerance = new System.Windows.Forms.TrackBar();
             this.lblrgb = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lblsize = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numcoltolerance = new System.Windows.Forms.NumericUpDown();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkColor = new System.Windows.Forms.CheckBox();
+            this.colWin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.picColorFucos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDelay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLimit)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tab_list.SuspendLayout();
-            this.tab_settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRetry)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_tolerance)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numcoltolerance)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPlay
             // 
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlay.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.Location = new System.Drawing.Point(261, 51);
+            this.btnPlay.Location = new System.Drawing.Point(482, 6);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(94, 46);
+            this.btnPlay.Size = new System.Drawing.Size(94, 51);
             this.btnPlay.TabIndex = 0;
             this.btnPlay.Text = "PLAY";
             this.btnPlay.UseVisualStyleBackColor = true;
@@ -91,45 +91,48 @@
             this.lv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lv.CheckBoxes = true;
             this.lv.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader4,
-            this.columnHeader6,
-            this.columnHeader2});
+            this.colCode,
+            this.colColorXY,
+            this.colClickXY,
+            this.colCount,
+            this.colWin});
             this.lv.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lv.FullRowSelect = true;
             this.lv.GridLines = true;
             this.lv.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lv.HideSelection = false;
             this.lv.LabelEdit = true;
-            this.lv.Location = new System.Drawing.Point(6, 6);
+            this.lv.Location = new System.Drawing.Point(6, 103);
             this.lv.MultiSelect = false;
             this.lv.Name = "lv";
-            this.lv.Size = new System.Drawing.Size(334, 188);
+            this.lv.Size = new System.Drawing.Size(570, 250);
             this.lv.TabIndex = 2;
             this.lv.UseCompatibleStateImageBehavior = false;
             this.lv.View = System.Windows.Forms.View.Details;
             this.lv.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lv_ItemSelectionChanged);
             // 
-            // columnHeader1
+            // colCode
             // 
-            this.columnHeader1.Text = "Color Code";
-            this.columnHeader1.Width = 103;
+            this.colCode.Text = "Color Code";
+            this.colCode.Width = 96;
             // 
-            // columnHeader4
+            // colColorXY
             // 
-            this.columnHeader4.Text = "Color";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 90;
+            this.colColorXY.Text = "Color XY";
+            this.colColorXY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colColorXY.Width = 82;
             // 
-            // columnHeader6
+            // colClickXY
             // 
-            this.columnHeader6.Text = "Clicks";
-            this.columnHeader6.Width = 56;
+            this.colClickXY.Text = "Click XY";
+            this.colClickXY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colClickXY.Width = 81;
             // 
-            // columnHeader2
+            // colCount
             // 
-            this.columnHeader2.Text = "Opt1";
-            this.columnHeader2.Width = 53;
+            this.colCount.Text = "Clicks";
+            this.colCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colCount.Width = 51;
             // 
             // timer1
             // 
@@ -143,7 +146,7 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(282, 199);
+            this.btnReset.Location = new System.Drawing.Point(518, 75);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(58, 22);
             this.btnReset.TabIndex = 11;
@@ -154,9 +157,9 @@
             // lblcursor
             // 
             this.lblcursor.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcursor.Location = new System.Drawing.Point(45, 60);
+            this.lblcursor.Location = new System.Drawing.Point(32, 60);
             this.lblcursor.Name = "lblcursor";
-            this.lblcursor.Size = new System.Drawing.Size(101, 17);
+            this.lblcursor.Size = new System.Drawing.Size(93, 17);
             this.lblcursor.TabIndex = 12;
             this.lblcursor.Text = "-";
             // 
@@ -169,18 +172,18 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.DarkGray;
-            this.label5.Location = new System.Drawing.Point(4, 362);
+            this.label5.Location = new System.Drawing.Point(5, 439);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 13);
             this.label5.TabIndex = 21;
-            this.label5.Text = "Ayanix Soft @ 2020";
+            this.label5.Text = "Ayanix Soft @ 2021";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(186, 362);
+            this.label6.Location = new System.Drawing.Point(194, 439);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(170, 12);
             this.label6.TabIndex = 23;
@@ -190,7 +193,7 @@
             // 
             this.picColorFucos.Location = new System.Drawing.Point(6, 59);
             this.picColorFucos.Name = "picColorFucos";
-            this.picColorFucos.Size = new System.Drawing.Size(33, 15);
+            this.picColorFucos.Size = new System.Drawing.Size(21, 15);
             this.picColorFucos.TabIndex = 22;
             this.picColorFucos.TabStop = false;
             // 
@@ -200,7 +203,7 @@
             this.lblwintitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.lblwintitle.Location = new System.Drawing.Point(5, 21);
             this.lblwintitle.Name = "lblwintitle";
-            this.lblwintitle.Size = new System.Drawing.Size(387, 17);
+            this.lblwintitle.Size = new System.Drawing.Size(345, 17);
             this.lblwintitle.TabIndex = 25;
             this.lblwintitle.Text = "-SAMPLE TEXT";
             this.lblwintitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -222,7 +225,7 @@
             this.btnDelItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelItem.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelItem.ForeColor = System.Drawing.Color.White;
-            this.btnDelItem.Location = new System.Drawing.Point(251, 199);
+            this.btnDelItem.Location = new System.Drawing.Point(487, 75);
             this.btnDelItem.Name = "btnDelItem";
             this.btnDelItem.Size = new System.Drawing.Size(29, 22);
             this.btnDelItem.TabIndex = 34;
@@ -240,7 +243,7 @@
             // numDelay
             // 
             this.numDelay.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numDelay.Location = new System.Drawing.Point(194, 54);
+            this.numDelay.Location = new System.Drawing.Point(144, 46);
             this.numDelay.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -252,8 +255,9 @@
             0,
             0});
             this.numDelay.Name = "numDelay";
-            this.numDelay.Size = new System.Drawing.Size(63, 22);
+            this.numDelay.Size = new System.Drawing.Size(67, 22);
             this.numDelay.TabIndex = 40;
+            this.numDelay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numDelay.Value = new decimal(new int[] {
             800,
             0,
@@ -264,29 +268,30 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 56);
+            this.label1.Location = new System.Drawing.Point(8, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 13);
+            this.label1.Size = new System.Drawing.Size(125, 13);
             this.label1.TabIndex = 41;
-            this.label1.Text = "CLICK DELAY (ms) [300-10000]";
+            this.label1.Text = "DELAY (ms) [300-10000]";
             // 
             // numLimit
             // 
             this.numLimit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numLimit.Location = new System.Drawing.Point(194, 24);
+            this.numLimit.Location = new System.Drawing.Point(144, 19);
             this.numLimit.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.numLimit.Minimum = new decimal(new int[] {
-            50,
+            20,
             0,
             0,
             0});
             this.numLimit.Name = "numLimit";
-            this.numLimit.Size = new System.Drawing.Size(63, 22);
+            this.numLimit.Size = new System.Drawing.Size(67, 22);
             this.numLimit.TabIndex = 42;
+            this.numLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numLimit.Value = new decimal(new int[] {
             50,
             0,
@@ -297,11 +302,11 @@
             // 
             this.chkLimitClk.AutoSize = true;
             this.chkLimitClk.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkLimitClk.Location = new System.Drawing.Point(15, 25);
+            this.chkLimitClk.Location = new System.Drawing.Point(10, 21);
             this.chkLimitClk.Name = "chkLimitClk";
-            this.chkLimitClk.Size = new System.Drawing.Size(155, 17);
+            this.chkLimitClk.Size = new System.Drawing.Size(117, 17);
             this.chkLimitClk.TabIndex = 45;
-            this.chkLimitClk.Text = "CLICKS LIMITER [50-1000]";
+            this.chkLimitClk.Text = "LIMITER [20-1000]";
             this.chkLimitClk.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -318,7 +323,7 @@
             // chkAll
             // 
             this.chkAll.AutoSize = true;
-            this.chkAll.Location = new System.Drawing.Point(6, 202);
+            this.chkAll.Location = new System.Drawing.Point(6, 82);
             this.chkAll.Name = "chkAll";
             this.chkAll.Size = new System.Drawing.Size(130, 17);
             this.chkAll.TabIndex = 47;
@@ -326,52 +331,10 @@
             this.chkAll.UseVisualStyleBackColor = true;
             this.chkAll.Click += new System.EventHandler(this.chkAll_Click);
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tab_list);
-            this.tabControl1.Controls.Add(this.tab_settings);
-            this.tabControl1.Location = new System.Drawing.Point(6, 101);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(353, 255);
-            this.tabControl1.TabIndex = 48;
-            // 
-            // tab_list
-            // 
-            this.tab_list.Controls.Add(this.lv);
-            this.tab_list.Controls.Add(this.chkAll);
-            this.tab_list.Controls.Add(this.btnReset);
-            this.tab_list.Controls.Add(this.btnDelItem);
-            this.tab_list.Location = new System.Drawing.Point(4, 22);
-            this.tab_list.Name = "tab_list";
-            this.tab_list.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_list.Size = new System.Drawing.Size(345, 229);
-            this.tab_list.TabIndex = 0;
-            this.tab_list.Text = "List";
-            this.tab_list.UseVisualStyleBackColor = true;
-            // 
-            // tab_settings
-            // 
-            this.tab_settings.Controls.Add(this.numRetry);
-            this.tab_settings.Controls.Add(this.label4);
-            this.tab_settings.Controls.Add(this.lbltolerancevalue);
-            this.tab_settings.Controls.Add(this.tb_tolerance);
-            this.tab_settings.Controls.Add(this.chkLimitClk);
-            this.tab_settings.Controls.Add(this.numDelay);
-            this.tab_settings.Controls.Add(this.label1);
-            this.tab_settings.Controls.Add(this.numLimit);
-            this.tab_settings.Location = new System.Drawing.Point(4, 22);
-            this.tab_settings.Name = "tab_settings";
-            this.tab_settings.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_settings.Size = new System.Drawing.Size(345, 229);
-            this.tab_settings.TabIndex = 1;
-            this.tab_settings.Text = "Settings";
-            this.tab_settings.UseVisualStyleBackColor = true;
-            // 
             // numRetry
             // 
             this.numRetry.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numRetry.Location = new System.Drawing.Point(194, 82);
+            this.numRetry.Location = new System.Drawing.Point(131, 46);
             this.numRetry.Maximum = new decimal(new int[] {
             10,
             0,
@@ -383,8 +346,9 @@
             0,
             0});
             this.numRetry.Name = "numRetry";
-            this.numRetry.Size = new System.Drawing.Size(63, 22);
+            this.numRetry.Size = new System.Drawing.Size(44, 22);
             this.numRetry.TabIndex = 49;
+            this.numRetry.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numRetry.Value = new decimal(new int[] {
             2,
             0,
@@ -395,48 +359,35 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 84);
+            this.label4.Location = new System.Drawing.Point(6, 53);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 48;
-            this.label4.Text = "CLICK RETRY [1-10]";
+            this.label4.Text = "RETRY [1-10]";
             // 
             // lbltolerancevalue
             // 
             this.lbltolerancevalue.AutoSize = true;
             this.lbltolerancevalue.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltolerancevalue.Location = new System.Drawing.Point(13, 126);
+            this.lbltolerancevalue.Location = new System.Drawing.Point(6, 23);
             this.lbltolerancevalue.Name = "lbltolerancevalue";
-            this.lbltolerancevalue.Size = new System.Drawing.Size(126, 13);
+            this.lbltolerancevalue.Size = new System.Drawing.Size(105, 13);
             this.lbltolerancevalue.TabIndex = 47;
-            this.lbltolerancevalue.Text = "COLOR TOLERANCE : 10";
-            // 
-            // tb_tolerance
-            // 
-            this.tb_tolerance.BackColor = System.Drawing.Color.White;
-            this.tb_tolerance.Location = new System.Drawing.Point(15, 145);
-            this.tb_tolerance.Maximum = 20;
-            this.tb_tolerance.Minimum = 3;
-            this.tb_tolerance.Name = "tb_tolerance";
-            this.tb_tolerance.Size = new System.Drawing.Size(242, 45);
-            this.tb_tolerance.TabIndex = 46;
-            this.tb_tolerance.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.tb_tolerance.Value = 18;
-            this.tb_tolerance.ValueChanged += new System.EventHandler(this.tb_tolerance_ValueChanged);
+            this.lbltolerancevalue.Text = "TOLERANCE [ 1-10 ]";
             // 
             // lblrgb
             // 
-            this.lblrgb.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblrgb.Location = new System.Drawing.Point(4, 77);
+            this.lblrgb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrgb.Location = new System.Drawing.Point(158, 58);
             this.lblrgb.Name = "lblrgb";
-            this.lblrgb.Size = new System.Drawing.Size(244, 19);
+            this.lblrgb.Size = new System.Drawing.Size(223, 16);
             this.lblrgb.TabIndex = 49;
             this.lblrgb.Text = "-";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(224, 5);
+            this.label7.Location = new System.Drawing.Point(327, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 50;
@@ -445,7 +396,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(310, 4);
+            this.button1.Location = new System.Drawing.Point(390, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 23);
             this.button1.TabIndex = 51;
@@ -459,22 +410,97 @@
             this.lblsize.AutoSize = true;
             this.lblsize.Enabled = false;
             this.lblsize.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsize.Location = new System.Drawing.Point(97, 9);
+            this.lblsize.Location = new System.Drawing.Point(103, 9);
             this.lblsize.Name = "lblsize";
             this.lblsize.Size = new System.Drawing.Size(30, 13);
             this.lblsize.TabIndex = 52;
             this.lblsize.Text = "[ X,Y ]";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.chkLimitClk);
+            this.groupBox1.Controls.Add(this.numLimit);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.numDelay);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(6, 356);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(221, 78);
+            this.groupBox1.TabIndex = 53;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "CLICK OPTION";
+            // 
+            // numcoltolerance
+            // 
+            this.numcoltolerance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numcoltolerance.Location = new System.Drawing.Point(131, 20);
+            this.numcoltolerance.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numcoltolerance.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numcoltolerance.Name = "numcoltolerance";
+            this.numcoltolerance.Size = new System.Drawing.Size(44, 22);
+            this.numcoltolerance.TabIndex = 50;
+            this.numcoltolerance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numcoltolerance.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.chkColor);
+            this.groupBox2.Controls.Add(this.numcoltolerance);
+            this.groupBox2.Controls.Add(this.lbltolerancevalue);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.numRetry);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(234, 358);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(186, 76);
+            this.groupBox2.TabIndex = 54;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "COLOR";
+            // 
+            // chkColor
+            // 
+            this.chkColor.AutoSize = true;
+            this.chkColor.Checked = true;
+            this.chkColor.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkColor.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkColor.Location = new System.Drawing.Point(63, 0);
+            this.chkColor.Name = "chkColor";
+            this.chkColor.Size = new System.Drawing.Size(15, 14);
+            this.chkColor.TabIndex = 50;
+            this.chkColor.UseVisualStyleBackColor = true;
+            // 
+            // colWin
+            // 
+            this.colWin.Text = "Target App";
+            this.colWin.Width = 225;
+            // 
             // frmBOt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 382);
+            this.ClientSize = new System.Drawing.Size(584, 456);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnDelItem);
+            this.Controls.Add(this.chkAll);
+            this.Controls.Add(this.lv);
             this.Controls.Add(this.lblsize);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblrgb);
-            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.label2);
@@ -489,19 +515,18 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "frmBOt";
-            this.Text = "Ayanix Auto Click";
+            this.Text = "Ayanix Auto Click 1.01";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmBOt_FormClosing);
             this.Load += new System.EventHandler(this.frmBOt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picColorFucos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDelay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLimit)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tab_list.ResumeLayout(false);
-            this.tab_list.PerformLayout();
-            this.tab_settings.ResumeLayout(false);
-            this.tab_settings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numRetry)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_tolerance)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numcoltolerance)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,8 +536,8 @@
 
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.ListView lv;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader colCode;
+        private System.Windows.Forms.ColumnHeader colColorXY;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label lblcursor;
@@ -523,7 +548,7 @@
         private System.Windows.Forms.Label lblwintitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDelItem;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader colClickXY;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.NumericUpDown numDelay;
         private System.Windows.Forms.Label label1;
@@ -531,18 +556,19 @@
         private System.Windows.Forms.CheckBox chkLimitClk;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox chkAll;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tab_list;
-        private System.Windows.Forms.TabPage tab_settings;
         private System.Windows.Forms.Label lblrgb;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader colCount;
         private System.Windows.Forms.Label lbltolerancevalue;
-        private System.Windows.Forms.TrackBar tb_tolerance;
         private System.Windows.Forms.NumericUpDown numRetry;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblsize;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown numcoltolerance;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox chkColor;
+        private System.Windows.Forms.ColumnHeader colWin;
     }
 }
 

@@ -15,7 +15,7 @@ namespace AyanixAutoCick
         private static int iClicker = 0;
         
         private HotKey kC;
-         
+
         public frmBOt()
         {
             base.DoubleBuffered = true;
@@ -36,13 +36,12 @@ namespace AyanixAutoCick
         {
             kC = new HotKey(Constants.CTRL,Keys.None, this);
             kC.Register();
-
-            tb_tolerance_ValueChanged(null, null);
         }
 
         private void frmBOt_FormClosing(object sender, FormClosingEventArgs e)
         {
             kC.Unregiser();
+
         }
 
         private void HandleAddList()
@@ -56,43 +55,61 @@ namespace AyanixAutoCick
                 int iX = Control.MousePosition.X;
                 int iY = Control.MousePosition.Y;
 
-                Color cColor = GetPixelColor(iX, iY);
-
-                foreach (ListViewItem ITM in lv.Items)
+                if (lv.SelectedItems.Count > 0)
                 {
-                    bFoundDuplicate = MatchColor(cColor, ITM.SubItems[3].BackColor, tb_tolerance.Value);
+                    ClickInfo2 CPf = (ClickInfo2)lv.SelectedItems[0].Tag;
+                    CPf.Click_X = iX;
+                    CPf.Click_Y = iY;
+
+                    lv.SelectedItems[0].SubItems[2].Text = iX.ToString() + "," + iY.ToString();
+
+                    MessageBox.Show("Click Location. Updated!!");
                 }
-
-                if (!bFoundDuplicate && lv.Items.Count < 10)
+                else
                 {
-                    string[] arr = new string[8];
+                    Color cColor = GetPixelColor(iX, iY);
 
-                    arr[0] = ColorTranslator.ToHtml(cColor).ToString();  
-                    arr[1] = iX.ToString() + "," + iY.ToString();
-                    arr[2] = "0";
-                    arr[3] = "-";
-
-                    Models.ClickInfo CPf = new Models.ClickInfo
+                    foreach (ListViewItem ITM in lv.Items)
                     {
-                        Color = cColor,
-                        Click_X = iX,
-                        Click_Y = iY
-                    };
+                        bFoundDuplicate = MatchColor(cColor, ITM.SubItems[1].BackColor, Convert.ToInt32(numcoltolerance.Value));
+                    }
 
-                    LST = new ListViewItem(arr);
-                    LST.Checked = true;
-                    LST.SubItems[1].BackColor = cColor;
-                    LST.UseItemStyleForSubItems = false;
-                    LST.Tag = CPf;          // Bind Model as Tag Object
+                    if (!bFoundDuplicate && lv.Items.Count < 10)
+                    {
+                        string[] arr = new string[8];
 
-                    lv.Items.Add(LST);
+                        arr[0] = ColorTranslator.ToHtml(cColor).ToString();
+                        arr[1] = iX.ToString() + "," + iY.ToString();
+                        arr[2] = iX.ToString() + "," + iY.ToString();
+                        arr[3] = "0";
+                        arr[4] = lblwintitle.Text;
+
+
+                        Models.ClickInfo2 CPf = new Models.ClickInfo2
+                        {
+                            Color = cColor,
+                            Pixel_X = iX,
+                            Pixel_Y = iY,
+                            Click_X = iX,
+                            Click_Y = iY
+                        };
+
+                        LST = new ListViewItem(arr);
+                        LST.Checked = true;
+                        LST.BackColor = cColor;
+                        LST.UseItemStyleForSubItems = false;
+                        LST.Tag = CPf;          // Bind Model as Tag Object
+
+                        lv.Items.Add(LST);
+                    }
                 }
             }           
         }
 
+
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == Constants.WM_HOTKEY_MSG_ID) HandleAddList();
+            if (m.Msg == Constants.WM_HOTKEY_MSG_ID) HandleAddList();         
             base.WndProc(ref m);
         }
 
@@ -112,11 +129,11 @@ namespace AyanixAutoCick
                 // reset counters
                 foreach (ListViewItem ITM in lv.Items)
                 {
-                    Models.ClickInfo Cpf = (Models.ClickInfo)ITM.Tag;
+                    Models.ClickInfo2 Cpf = (Models.ClickInfo2)ITM.Tag;
 
                     Cpf.Counter = 0;
 
-                    ITM.SubItems[2].Text = Cpf.Counter.ToString();
+                    ITM.SubItems[3].Text = Cpf.Counter.ToString();
                 }
 
                 Application.DoEvents();
@@ -178,38 +195,84 @@ namespace AyanixAutoCick
         // 500 ms
         private void timer2_Tick(object sender, EventArgs e)
         {
+
+
+
             if (bPlay)
             {
                 Color cColorNow = Color.Empty, cColor = Color.Empty;
 
                 foreach (ListViewItem ITM in lv.Items)
                 {
-                    Models.ClickInfo Cpf = (Models.ClickInfo)ITM.Tag;
+                    ClickInfo2 Cpf = (ClickInfo2)ITM.Tag;
 
-                    ITM.BackColor = Color.White;                               // Reset Color  
+                    ITM.SubItems[3].BackColor = Color.White;                   // Reset Color  
 
-                    cColor = Cpf.Color;                                      // Recorded Color
-                    cColorNow = GetPixelColor(Cpf.Click_X, Cpf.Click_Y);       // Screen Color
+                    cColor = Cpf.Color;                                        // Recorded Color
+                    cColorNow = GetPixelColor(Cpf.Pixel_X, Cpf.Pixel_Y);       // Screen Color
                     
-                    if (cCurColor != cColorNow) iClicker = 0;
+                    //if (cCurColor != cColorNow) iClicker = 0;
 
-                    if (ITM.Checked && MatchColor(cColor, cColorNow, tb_tolerance.Value) && iClicker < numRetry.Value)
+
+                    if (chkColor.Checked)
                     {
-                        LeftClick(Cpf.Click_X, Cpf.Click_Y);
-
-                        if (iClicker == 0)
+                        if (ITM.Checked && MatchColor(cColor, cColorNow, Convert.ToInt32(numcoltolerance.Value)) )
                         {
+                            if(ITM.SubItems[4].Text != "")
+                            {
+                                FucosWin(ITM.SubItems[4].Text);
+                            }
+
+                            LeftClick(Cpf.Click_X, Cpf.Click_Y);
+
+                            //txtLog.Text += ITM.SubItems[4].Text + " click " + Cpf.Click_X + " , " + Cpf.Click_Y + "   " + Environment.NewLine;
+
                             Cpf.Counter++;
-                         
-                            if (chkLimitClk.Checked && numLimit.Value == Cpf.Counter) ITM.Checked = false;  // bPlay = false;
+                            ITM.SubItems[3].Text = Cpf.Counter.ToString();
+                            ITM.SubItems[3].BackColor = Color.LightPink;
 
-                            ITM.SubItems[2].Text = Cpf.Counter.ToString();
-                            ITM.BackColor = Color.LightPink;
+                            if (chkLimitClk.Checked && numLimit.Value == Cpf.Counter) 
+                            {
+                                if (lv.Items.Count == 1)  bPlay = false;
+
+                                ITM.Checked = false;
+                                Cpf.Counter = 0;
+                            } 
+
+                            //if (iClicker == 0)
+                            //{
+                            //    iClicker++;  // Repeated Click Counter
+                            //    cCurColor = cColorNow;
+                            //}
                         }
-
-                        iClicker++;  // Repeated Click Counter
-                        cCurColor = cColorNow;
                     }
+                    else
+                    {
+                        if (ITM.Checked)
+                        {
+                            if (ITM.SubItems[4].Text != "")
+                            {
+                                FucosWin(ITM.SubItems[4].Text);
+                            }
+
+                            LeftClick(Cpf.Click_X, Cpf.Click_Y);
+
+                            //txtLog.Text += ITM.SubItems[4].Text + " click " + Cpf.Click_X + " , " + Cpf.Click_Y + "   " + Environment.NewLine;
+
+                            Cpf.Counter++;
+                            ITM.SubItems[3].Text = Cpf.Counter.ToString();
+                            ITM.SubItems[3].BackColor = Color.LightPink;
+
+                            if (chkLimitClk.Checked && numLimit.Value == Cpf.Counter)
+                            {
+                                if (lv.Items.Count == 1) bPlay = false;
+
+                                ITM.Checked = false;
+                                Cpf.Counter = 0;
+                            }
+                        }
+                    }
+                    
                 }
             }
         }
@@ -217,9 +280,6 @@ namespace AyanixAutoCick
         // 650ms  Fixed Timer
         private void timer3_Tick(object sender, EventArgs e)
         {
-            // working
-            //label7.ForeColor = FindWin("MEmu") ? Color.Red : Color.Black;
-
             WindowInfo WinInfo = GetActiveWindow();
 
             lblwintitle.Text = WinInfo.Title ;
@@ -269,11 +329,6 @@ namespace AyanixAutoCick
         private void chkAll_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem LST in lv.Items) { LST.Checked = chkAll.Checked; }
-        }
-
-        private void tb_tolerance_ValueChanged(object sender, EventArgs e)
-        {
-            lbltolerancevalue.Text = "COLOR TOLERANCE : " + tb_tolerance.Value;
         }
 
         private void button1_Click(object sender, EventArgs e)

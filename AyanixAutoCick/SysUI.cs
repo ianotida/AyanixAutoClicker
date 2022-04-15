@@ -138,10 +138,7 @@ public class SysUI
             Gpx.Dispose(); 
 
             bmp.Save(sPath, ImageFormat.Png);
-        }
-
-
-       
+        }       
     }
 
 
@@ -158,62 +155,15 @@ public class SysUI
     [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
     static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
 
-    private static IntPtr CreateLParam(int LoWord, int HiWord)
-    {
-         return (IntPtr)((HiWord << 16) | (LoWord & 0xffff));
-    }
-
-
+ 
     public static void LeftClick(int pX,int pY)
     {
         Cursor.Position = new Point(pX, pY);
-
         mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, (uint)pX, (uint)pY, 0, 0);
     }
 
-    public static void LeftClick1(string processName, int pX,int pY)
-    {
-        Process[] p = Process.GetProcessesByName(processName);
+ 
 
-        // Activate the first application we find with this name
-        if (p.Length > 0)
-        {
-            IntPtr handle = p[0].MainWindowHandle;
 
-            SetForegroundWindow(handle);
 
-            RECT rc = new RECT();
-            GetWindowRect(handle, out rc);
-
-            //int X = pX - rc.Left;
-            //int Y = pY - rc.Top;
-            //int lparm = (Y << 16) + X;
-            //int lngResult = SendMessage(handle, WM_LBUTTONDOWN, 0, lparm);
-            //int lngResult2 = SendMessage(handle, WM_LBUTTONUP, 0, lparm);
-        }      
-    }
-
-    public static void LeftClick2(string processName, int pX,int pY)
-    {
-        //Process[] p = Process.GetProcessesByName(processName);
-
-        //// Activate the first application we find with this name
-        //if (p.Length > 0)
-        //{
-        //    SetForegroundWindow(p[0].MainWindowHandle);
-
-        //    Cursor.Position = new Point(pX, pY);
-
-        //    var inputMouseDown = new ClickOnPointTool.INPUT();
-        //    inputMouseDown.Type = 0; /// input type mouse
-        //    inputMouseDown.Data.Mouse.Flags = 0x0002; /// left button down
-
-        //    var inputMouseUp = new ClickOnPointTool.INPUT();
-        //    inputMouseUp.Type = 0; /// input type mouse
-        //    inputMouseUp.Data.Mouse.Flags = 0x0004; /// left button up
-
-        //    var inputs = new ClickOnPointTool.INPUT[] { inputMouseDown, inputMouseUp };
-        //    ClickOnPointTool.SendInput((uint)inputs.Length, inputs, Marshal.SizeOf(typeof(ClickOnPointTool.INPUT)));
-        //}      
-    }
 }
