@@ -63,3 +63,5 @@ D:\A.GITHUB\AyanixAutoClicker\AyanixAutoCick\obj\Debug\AyanixAutoCick.csproj.Gen
 D:\A.GITHUB\AyanixAutoClicker\AyanixAutoCick\obj\Debug\AyanixAutoCick.csproj.CoreCompileInputs.cache
 D:\A.GITHUB\AyanixAutoClicker\AyanixAutoCick\obj\Debug\AyanixAutoCick.exe
 D:\A.GITHUB\AyanixAutoClicker\AyanixAutoCick\obj\Debug\AyanixAutoCick.pdb
+D:\A.GITHUB\AyanixAutoClicker\AyanixAutoCick\obj\Debug\AyanixAutoCick.csproj.AssemblyReference.cache
+D:\A.GITHUB\AyanixAutoClicker\AyanixAutoCick\obj\Debug\AyanixAutoCick.csproj.SuggestedBindingRedirects.cache

@@ -218,7 +218,7 @@ namespace AyanixAutoCick
                     {
                         if (ITM.Checked && MatchColor(cColor, cColorNow, Convert.ToInt32(numcoltolerance.Value)) )
                         {
-                            if(ITM.SubItems[4].Text != "")
+                            if (ITM.SubItems[4].Text != "")
                             {
                                 FucosWin(ITM.SubItems[4].Text);
                             }
